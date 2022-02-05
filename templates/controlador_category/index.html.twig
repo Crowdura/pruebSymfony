@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Categoria {% endblock %}
+
+{% block body %}
+<main>
+<!--Tabla_de_consulta_de_categorias-->
+<div class="card">
+  <div class="card-body card-secondary bg-secondary">
+    <center><label>Categoria</label></center>
+  </div>
+</div>
+<div style="box-sinzing:border-box; padding:20px">
+<a class="btn btn-primary" href="{{ path('CrearCategoria') }}" role="button">Agregar</a>
+</button>
+
+<div style="width:70%;position:relative;left:14%;top:24%">
+<table id="example" class="table table-dark" style="margin-top:3%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>createdAt</th>
+      <th>updateAt</th>
+      <th>Productos</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for Categoria in Categorias %}
+     <tr>
+      <th>{{Categoria.id}}</th>
+      <td>{{Categoria.name}}</td>
+      <td>{{Categoria.createdAt|format_datetime('medium','short')}}</td>
+      <td>{{Categoria.updateAt|format_datetime('medium','short')}}</td>
+      <td>
+          {% for Categoria_Productos in Categoria.productos %}
+              <label>{{Categoria_Productos}},</label>
+          {% endfor %}
+      </td>
+      <td>
+        <a class="btn btn-primary" href="{{ path('VistaCategoria',{id: Categoria.id}) }}" role="button">Mostrar</a>
+      </td>
+    </tr>
+  {% endfor %}
+     <tfoot>
+       <th scope="col">ID</th>
+       <th scope="col">Nombre</th>
+       <th scope="col">createdAt</th>
+       <th scope="col">updateAt</th>
+       <th scope="col">Productos</th>
+       <th scope="col">Opciones</th>
+     </tfoot>
+  </tbody>
+</table>
+</div>
+<div ></div>
+</div>
+</main>
+{% endblock %}

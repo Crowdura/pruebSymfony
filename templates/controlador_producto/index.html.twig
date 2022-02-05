@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Productos {% endblock %}
+
+{% block body %}
+<main>
+<!--Tabla_de_consulta_de_categorias-->
+<div class="card">
+  <div class="card-body card-secondary bg-secondary">
+    <center><label>Producto</label></center>
+  </div>
+</div>
+<div style="box-sinzing:border-box; padding:20px">
+<a class="btn btn-primary" href="{{ path('CrearProducto') }}" role="button">Agregar</a>
+</button>
+<div style="width:70%;position:relative;left:14%;top:24%">
+<table id="example" class="table table-dark" style="margin-top:3%">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Creado</th>
+      <th scope="col">Actualizado</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+ {% for Contenido_Producto in Contenido_Productos %}
+     <tr>
+      <th scope="row">{{Contenido_Producto.id}}</th>
+      <td>{{Contenido_Producto.code}}</td>
+      <td>{{Contenido_Producto.name}}</td>
+      <td>{{Contenido_Producto.brand}}</td>
+      <td>{{Contenido_Producto.Categorya}}</td>
+      <td>{{Contenido_Producto.price}}</td>
+      <td>{{Contenido_Producto.createdaAt|format_datetime('medium','short')}}</td>
+      <td>{{Contenido_Producto.updateAt|format_datetime('medium','short')}}</td>
+      <td>
+        <a class="btn btn-primary" href="{{ path('VistaProducto',{id: Contenido_Producto.id}) }}" role="button">Mostrar</a>
+      </td>
+    </tr>
+  {% endfor %}
+     <tfoot>
+      <th scope="col">ID</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Creado</th>
+      <th scope="col">Actualizado</th>
+      <th scope="col">Opciones</th>
+     </tfoot>
+  </tbody>
+</table>
+</div>
+<div ></div>
+</div>
+</main>
+{% endblock %}

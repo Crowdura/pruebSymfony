@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %} Categoria {% endblock %}
+{% block body %}
+<div class="card">
+  <div class="card-body card-secondary bg-secondary">
+    <center><label>Categoria {{ contenidoCategoria.name }}</label></center>
+  </div>
+</div>
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('controlador_category') }}" role="button">regresar</a>
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('EditarCategoria',{id: contenidoCategoria.id}) }}" role="button">Editar</a>
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('EliminarCategoria',{id: contenidoCategoria.id}) }}" role="button">Borrar</a>
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Contenido Categoria</h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group input-group-sm mb-3">
+          <label>Nombre: {{contenidoCategoria.name}}</label>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+          <label>Estado:
+            {% if contenidoCategoria.active == 1 %}
+              Activo
+            {% elseif contenidoCategoria.active == 0 %}
+              Desactivado
+            {% endif %}
+          </label>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <label>Fecha de Creación:  {{contenidoCategoria.createdAt|format_datetime('medium','short')}}</label>
+        </div>   
+        <div class="input-group input-group-sm mb-3">
+          <label>Fecha de Actualización:  {{contenidoCategoria.updateAt|format_datetime('medium', 'short')}}</label>
+        </div>   
+      </div>
+    </div>
+  </div>
+{% endblock %}

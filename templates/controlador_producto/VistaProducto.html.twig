@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block title %} Producto {% endblock %}
+{% block body %}
+<div class="card">
+  <div class="card-body card-secondary bg-secondary">
+    <center><label>Producto {{ contenido_Producto.name }}</label></center>
+  </div>
+</div>
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('controlador_producto') }}" role="button">Regresar</a>
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('EditProducto',{id: contenido_Producto.id}) }}" role="button">Editar</a>
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('EliminarProducto',{id: contenido_Producto.id}) }}" role="button">Borrar</a>
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Contenido Producto</h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group input-group-sm mb-3">
+          <label>Código: {{contenido_Producto.code}}</label>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <label>Nombre:  {{contenido_Producto.name}}</label>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <label>Descripción:   {{contenido_Producto.description}}</label>
+        </div> 
+
+        <div class="input-group input-group-sm mb-3">
+          <label>Marca:  {{contenido_Producto.brand}}</label>
+        </div>               
+
+        <div class="input-group input-group-sm mb-3">
+          <label>Categoria:  {{contenido_Producto.Categorya}}</label>
+        </div>
+        
+        <div class="input-group input-group-sm mb-3">
+          <label>Precio:  {{contenido_Producto.price}}</label>
+        </div>   
+        <div class="input-group input-group-sm mb-3">
+          <label>Fecha de Creación:  {{contenido_Producto.createdaAt|format_datetime('medium','short')}}</label>
+        </div>   
+        <div class="input-group input-group-sm mb-3">
+          <label>Fecha de Actualización:  {{contenido_Producto.updateAt|format_datetime('medium', 'short')}}</label>
+        </div>   
+      </div>
+    </div>
+  </div>
+{% endblock %}

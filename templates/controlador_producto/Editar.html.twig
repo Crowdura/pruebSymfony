@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body %}
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('controlador_producto') }}" role="button">Regresar</a>
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear Producto</h5>
+      </div>
+      {{ form_start(Form_Edit)}}
+      <div class="modal-body">
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Código</span>
+            {{ form_widget(Form_Edit.code,{'attr':{'class':'form-control'}})}}
+            {{ form_errors(Form_Edit.code)}}
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+             {{ form_widget(Form_Edit.name,{'attr':{'class':'form-control'}})}}
+             {{ form_errors(Form_Edit.name)}}
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Description</span>
+             {{ form_widget(Form_Edit.description,{'attr':{'class':'form-control'}})}}
+             {{ form_errors(Form_Edit.description)}}
+        </div> 
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Marca</span>
+             {{ form_widget(Form_Edit.brand,{'attr':{'class':'form-control'}})}}
+             {{ form_errors(Form_Edit.brand)}}
+        </div>               
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Categoria</span>
+            </div>
+            {{form_widget(Form_Edit.Categorya, {'attr':{'class':'form-select form-select-sm','aria-label':'.form-select-sm example'}})}}
+            {{ form_errors(Form_Edit.Categorya)}}
+        </div>
+        
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+             {{ form_widget(Form_Edit.price,{'attr':{'class':'form-control'}})}}
+             {{ form_errors(Form_Edit.price,{'attr':{'class':'alert alert-primary', 'role':'alert'}})}}
+        </div>   
+      </div>
+      <div class="modal-footer">
+        {{ form_widget(Form_Edit.submit, {'attr': {'class': 'btn btn-primary'}})}}
+      </div>
+       {{ form_end(Form_Edit) }}
+    </div>
+</div>
+{% endblock %}

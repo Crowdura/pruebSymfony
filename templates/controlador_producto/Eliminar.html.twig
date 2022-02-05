@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body %}
+<a style="margin-right:3%;" class="btn btn-primary" href="{{ path('controlador_producto') }}" role="button">Regresar</a>
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar Producto</h5>
+      </div>
+      {{ form_start(Form_Eliminar)}}
+      <div class="modal-body">
+         <label>No se podra renovar este Producto seguro que deseas borrar el Producto<label>
+      </div>
+      <div class="modal-footer">
+        {{ form_widget(Form_Eliminar.submit, {'attr': {'class': 'btn btn-primary'}})}}
+      </div>
+       {{ form_end(Form_Eliminar) }}
+    </div>
+</div>
+{% endblock %}

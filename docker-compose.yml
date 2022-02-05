@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  mailer:
+    image: shickling/mailcatcher
+    ports: [1035, 1080]
+volumes:
+###> doctrine/doctrine-bundle ###
+  db-data:
+###< doctrine/doctrine-bundle ###
